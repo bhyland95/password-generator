@@ -25,6 +25,49 @@ function reset() {
   document.querySelector("#password").value = "";
 }
 
+//FUNCTION that iterates through password criteria
+function passwordCriteria() {
+  //Lowercase
+  var lowerCase = confirm("Would you like to include LOWERCASE characters in your password?")
+  //Adds lowercase charnumbers to charCodeArray
+  if (lowerCase) {
+    arrayFromLowtoHigh(97, 122)
+  }
+  //Upercase
+  var upperCase = confirm("Would you like to include UPPERCASE characters in your password?")
+  //Adds uppercase charnumbers to charCodeArray
+  if (upperCase) {
+    arrayFromLowtoHigh(65, 90)
+  }
+  //Number
+  var numbers = confirm("Would you like to include NUMBERS in your password?")
+  //adds number charnumbers to charCodeArray
+  if (numbers) {
+    arrayFromLowtoHigh(48, 57)
+  }
+  //Special
+  var special = confirm("Would you like to include SPECIAL characters in your password?")
+  //adds special charnumbers to charCodeArray
+  if (special) {
+    arrayFromLowtoHigh(32, 47)
+  }
+  if (special) {
+    arrayFromLowtoHigh(58, 64)
+  }
+  if (special) {
+    arrayFromLowtoHigh(91, 96)
+  }
+  if (special) {
+    arrayFromLowtoHigh(123, 126)
+  }
+
+  if(charCodeArray.length === 0) {
+    alert("ERROR. You must include atleast 1 criteria.")
+    passwordCriteria();
+  }
+}
+
+
 //FUNCTION to generate password
 function generatePassword() {
   //Resets all variables back to blanks
@@ -33,37 +76,9 @@ function generatePassword() {
   //Length
   var passLength = parseInt(prompt("How many characters should your password be? Please choose between 8 and 128."))
   if (passLength >= 8 && passLength <= 128){
-    //UpperCase
-    var upperCase = confirm("Would you like to include UPPERCASE characters in your password?")
-    //Adds uppercase charnumbers to charCodeArray
-    if (upperCase) {
-      arrayFromLowtoHigh(65, 90)
-    }
-    //Number
-    var numbers = confirm("Would you like to include NUMBERS in your password?")
-    console.log(numbers)
-    //adds number charnumbers to charCodeArray
-    if (numbers) {
-      arrayFromLowtoHigh(48, 57)
-    }
-    //Special
-    var special = confirm("Would you like to include SPECIAL characters in your password?")
-    //adds special charnumbers to charCodeArray
-    if (special) {
-      arrayFromLowtoHigh(32, 47)
-    }
-    if (special) {
-      arrayFromLowtoHigh(58, 64)
-    }
-    if (special) {
-      arrayFromLowtoHigh(91, 96)
-    }
-    if (special) {
-      arrayFromLowtoHigh(123, 126)
-    }
-    //Adds lowercase charnumbers to charCodeArray
-    arrayFromLowtoHigh(97, 122);
-    //IF NOT BETWEEN 8 - 128
+    passwordCriteria();
+    
+    
   } 
   else {
     alert("Length must be a number between 8 and 128. Please try again.")
