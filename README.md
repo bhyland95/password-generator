@@ -10,6 +10,9 @@ The input that the user can provide is to whether or not include:
 - numbers
 - special characters
 
+Here is a link to the page:
+https://bhyland95.github.io/password-generator/
+
 Here is an image of the page:
 
 <img width="699" alt="PW Generator" src="https://user-images.githubusercontent.com/84405590/129109076-1c7826ce-385e-4934-97a7-bf02a34fe99a.PNG">
